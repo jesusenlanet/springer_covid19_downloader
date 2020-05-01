@@ -40,7 +40,10 @@ for page in range(1, pages + 1):
                 # We encode the / and \ characters on titles, to avoid problems with paths
                 title = title.replace("/", u'\u2215')
                 title = title.replace("\\", u"\u2216")
-                download_url = soup.findAll("a", {"class": "test-bookpdf-link"})[0]["href"]
+                try:
+                    download_url = soup.findAll("a", {"class": "test-bookpdf-link"})[0]["href"]
+                except IndexError:
+                    continue
                 download_url = f"{base_url}{download_url}"
                 print(f"TRYING TO DOWNLOAD FROM {download_url}")
                 # once we have the title and the download url, we download the content
