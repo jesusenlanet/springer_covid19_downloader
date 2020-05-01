@@ -5,7 +5,10 @@ That program is a quick and dirty program aimed to show to the students how to d
 
 Feel free to collaborate if you think something could be improved. 
 
-## Installing requirements
+## Requirements
+Python versions supported:
+- python 3+
+
 Is strongly recommended to install the requirements into a virtual environment.
 
 ```bash

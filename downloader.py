@@ -36,6 +36,10 @@ for page in range(1, pages + 1):
                 book_html = response.content
                 soup = BeautifulSoup(book_html, 'html.parser')
                 title = soup.findAll("h1")[0].text
+
+                # We encode the / and \ characters on titles, to avoid problems with paths
+                title = title.replace("/", u'\u2215')
+                title = title.replace("\\", u"\u2216")
                 download_url = soup.findAll("a", {"class": "test-bookpdf-link"})[0]["href"]
                 download_url = f"{base_url}{download_url}"
                 print(f"TRYING TO DOWNLOAD FROM {download_url}")
